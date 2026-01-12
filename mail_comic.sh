@@ -8,13 +8,13 @@ then
 fi
 
 # Fetch sender email (stored externally, for security/configuration)
-sender=$(cat config/sender.txt)
+sender=$(cat softer-postbox/config/sender.txt)
 
 # Fetch google app password (stored externally, for security/configuration)
-gapp=$(cat config/gapp.txt)
+gapp=$(cat softer-postbox/config/gapp.txt)
 
 # Fetch the image and store the output (title text) in a variable using helper script
-title_text=$(./get_comic.sh $1)
+title_text=$(softer-postbox/get_comic.sh $1)
 
 # Set subject to comic name and number
 sub="A Softer World [$1]"
@@ -27,7 +27,7 @@ $title_text
 (Powered by https://github.com/MatthewMarmalade/softer-postbox)"
 
 # set file variable to where ./get_comic.sh has stored it
-file="comic_$1.jpg"
+file="softer-postbox/comic_$1.jpg"
 
 # MIME type for multiple type of input file extensions
 MIMEType=`file --mime-type "$file" | sed 's/.*: //'`
@@ -55,7 +55,7 @@ while read receiver || [[ -n $receiver ]]; do
 	else
 		echo "Failed to send email to $receiver. Exit code $?, Response: $response"
 	fi
-done < config/recipients.txt
+done < softer-postbox/config/recipients.txt
 
 rm $file
 
