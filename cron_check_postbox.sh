@@ -1,6 +1,6 @@
 #!/bin/bash
 
-latest_comic=$(< softer/postbox/config/latest_comic.txt)
+latest_comic=$(< softer-postbox/config/latest_comic.txt)
 next_comic=$(($latest_comic + 1))
 
 softer-postbox/mail_comic.sh $next_comic
