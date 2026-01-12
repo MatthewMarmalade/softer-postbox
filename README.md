@@ -11,8 +11,9 @@ This is intended to support automatically emailing webcomic entries (to myself, 
 It's basically just some bash scripting that makes use of curl to download the images and post the email, the Gmail SMTP server with a Google App Password to send the mail, and cron to handle the scheduling.
 
 ## Usage
-For my purposes this project is hosted on a very small cloud server. The repository is installed at the top level using a git clone. The crontab job line (added with `crontab -e`) looks like this:
-`0 16 * * * ./softer-postbox/cron_check_postbox.sh`
+For my purposes this project is hosted on a very small ubuntu cloud server. The repository is installed at the top level using a git clone. The crontab job line (added with `crontab -e`) looks like this:
+
+```0 16 * * * ./softer-postbox/cron_check_postbox.sh```
 
 The config folder has a couple of individual text files storing relevant information. They're empty in this repository (for privacy/security) and need to be populated before anything will work:
 - sender.txt needs the email address the mail will be sent from
@@ -30,7 +31,7 @@ Here's some things I came across while working on this project that might trip o
 Using curl to send emails through gmail is supposed to be usage-limited (for good reason) but even in testing I never came up against any such limits.
 
 ## Background
-This is a very silly little project spawned from my desire to read the entirety of 'A Softer World', a fantastic comic by Emily Horne and Joey Comeau. Unfortunately, my life tends to be pretty intensely impacted when I dive into a new comic with immediate access to the 'next' button, i.e. I spend all my time reading it and not doing anything else I ought to be doing (see: Questionable Content, Dumbing of Age, and though it's not a webcomic, Worm). I also find A Softer World to be highly *poetic* -- the kind of work I want to sit with, consume slowly, and linger upon. 'How nice it would be,' I wondered, 'to experience this as if it were still being released, one arbitrary chronometric unit at a time? With an email feed, say?'.
+This is a very silly little project spawned from my desire to read the entirety of 'A Softer World' (https://www.asofterworld.com/), a fantastic comic by Emily Horne and Joey Comeau. Unfortunately, my life tends to be pretty intensely impacted when I dive into a new comic with immediate access to the 'next' button, i.e. I spend all my time reading it and not doing anything else I ought to be doing (see: Questionable Content, Dumbing of Age, and though it's not a webcomic, Worm). I also find A Softer World to be highly *poetic* -- the kind of work I want to sit with, consume slowly, and linger upon. 'How nice it would be,' I wondered, 'to experience this as if it were still being released, one arbitrary chronometric unit at a time? With an email feed, say?'.
 
 And thus this little re-delve into the world of shell scripting (a language/framework I find fascinatingly useful, but whose design is just esoteric and illogical enough that I've never quite gotten it from the cache down into disk) was born. And now I have emails arriving once a day with comics in them.
 
