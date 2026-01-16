@@ -38,7 +38,7 @@ MIMEType=`file --mime-type "$file" | sed 's/.*: //'`
 # loop over every email address in the 'recipients' config file
 success=0
 while read receiver || [[ -n $receiver ]]; do
-	response=$(curl -v --url 'smtp://smtp.gmail.com:587' --ssl-reqd \
+	response=$(curl -s --url 'smtp://smtp.gmail.com:587' --ssl-reqd \
 		--mail-from $sender \
 		--mail-rcpt $receiver \
 		--user $sender:$gapp \
