@@ -8,7 +8,7 @@ then
     exit 1
 fi
 
-curl -s -o "softer-postbox/temporary_comic_page.html" "https://www.asofterworld.com/index.php?id=$1"
+curl -v -o "softer-postbox/temporary_comic_page.html" "https://www.asofterworld.com/index.php?id=$1"
 
 # extract the image link from the html
 comic_file_name=$(grep -o 'https://www.asofterworld.com/clean/.*\.jpg' softer-postbox/temporary_comic_page.html)
@@ -25,7 +25,7 @@ fi
 comic_title_text=$(grep 'makeAlert' temporary_comic_page.html | grep -E -o "'.+'" | sed "s/'', //")
 
 # fetch the comic image itself and store it in a file
-curl -s -o "softer-postbox/comic_$1.jpg" "$comic_file_name"
+curl -v -o "softer-postbox/comic_$1.jpg" "$comic_file_name"
 
 echo "$comic_title_text"
 
