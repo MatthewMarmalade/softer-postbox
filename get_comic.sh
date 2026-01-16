@@ -8,7 +8,7 @@ then
     exit 1
 fi
 
-curl -v -o "softer-postbox/temporary_comic_page.html" "https://www.asofterworld.com/index.php?id=$1"
+curl -s -o "softer-postbox/temporary_comic_page.html" "https://www.asofterworld.com/index.php?id=$1"
 
 # extract the image link from the html
 comic_file_name=$(grep -o 'https://www.asofterworld.com/clean/.*\.jpg' softer-postbox/temporary_comic_page.html)
