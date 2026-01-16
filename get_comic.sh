@@ -22,7 +22,7 @@ then
 fi
 
 # extract the title text from the html
-comic_title_text=$(grep 'makeAlert' temporary_comic_page.html | grep -E -o "'.+'" | sed "s/'', //")
+comic_title_text=$(grep 'makeAlert' softer-postbox/temporary_comic_page.html | grep -E -o "'.+'" | sed "s/'', //")
 
 # fetch the comic image itself and store it in a file
 curl -s -o "softer-postbox/comic_$1.jpg" "$comic_file_name"
