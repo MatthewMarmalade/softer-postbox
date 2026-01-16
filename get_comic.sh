@@ -25,7 +25,7 @@ fi
 comic_title_text=$(grep 'makeAlert' temporary_comic_page.html | grep -E -o "'.+'" | sed "s/'', //")
 
 # fetch the comic image itself and store it in a file
-curl -v -o "softer-postbox/comic_$1.jpg" "$comic_file_name"
+curl -s -o "softer-postbox/comic_$1.jpg" "$comic_file_name"
 
 echo "$comic_title_text"
 
